@@ -9,7 +9,7 @@ services:
   mysql:
     image: mysql  # 使用官方 MySQL 镜像，你可以根据需要选择版本
     environment:
-      MYSQL_ROOT_PASSWORD: "123456"  # 设置 root 用户密码
+      MYSQL_ROOT_PASSWORD: "shdea2020"  # 设置 root 用户密码
       MYSQL_DATABASE: "cool"         # 创建一个初始数据库
     networks:
       - backend

@@ -11,10 +11,10 @@
         <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cool</groupId>
-    <artifactId>cool-admin</artifactId>
+    <artifactId>shdea-admin</artifactId>
     <version>7.1.0</version>
-    <name>cool-admin</name>
-    <description>cool admin for java</description>
+    <name>shdea-admin</name>
+    <description>shdea admin for java</description>
     <properties>
         <java.version>17</java.version>
         <lombok.version>1.18.34</lombok.version>
