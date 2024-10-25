@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
  * 系统用户
  */
 @Tag(name = "系统用户", description = "系统用户")
-@CoolRestController(api = { "add", "delete", "update", "page", "info" })
+@CoolRestController(api = { "add", "delete", "update", "page", "info", "list" })
 public class AdminBaseSysUserController extends BaseController<BaseSysUserService, BaseSysUserEntity> {
 
     @Override

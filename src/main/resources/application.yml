@@ -33,19 +33,19 @@ spring:
       static-locations: classpath:/static/,file:./assets/public/
 
   # caffeine 缓存
-  cache:
-    type: caffeine
-    file: assets/cache
+#  cache:
+#    type: caffeine
+#    file: assets/cache
 
   #redis 缓存
-  #  cache:
-  #    type: redis
-  #  data:
-  #    redis:
-  #      host: 127.0.0.1
-  #      port: 6379
-  #      database: 0
-  #      password:
+  cache:
+    type: redis
+  data:
+    redis:
+      host: 43.130.29.36
+      port: 6379
+      database: 0
+      password: shdea2020
   quartz:
     job-store-type: jdbc
     jdbc:
