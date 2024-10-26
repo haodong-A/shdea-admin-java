@@ -44,7 +44,7 @@ spring:
     redis:
       host: 43.130.29.36
       port: 6379
-      database: 0
+      database: 1
       password: shdea2020
   quartz:
     job-store-type: jdbc
