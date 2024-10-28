@@ -21,7 +21,7 @@ public class BaseSysParamEntity extends BaseEntity<BaseSysParamEntity> {
     @ColumnDefine(comment = "数据", type = "text")
     private String data;
 
-    @ColumnDefine(comment = "数据类型 0:字符串 1:数组 2:键值对", defaultValue = "0")
+    @ColumnDefine(comment = "数据类型 0:字符串 1:数组 2:键值对 3:json", defaultValue = "0")
     private Integer dataType;
 
     @ColumnDefine(comment = "备注")
