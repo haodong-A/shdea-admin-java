@@ -3,6 +3,7 @@ package com.cool.modules.goods.service.impl;
 import com.cool.core.base.BaseEntity;
 import com.cool.core.base.BaseServiceImpl;
 import com.cool.core.exception.CoolException;
+import com.cool.modules.goods.dto.category.CategoryLevelDto;
 import com.cool.modules.goods.entity.GoodsCategoryEntity;
 import com.cool.modules.goods.entity.GoodsInfoEntity;
 import com.cool.modules.goods.mapper.GoodsCategoryMapper;
@@ -14,8 +15,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static com.cool.modules.goods.entity.table.GoodsCategoryEntityTableDef.GOODS_CATEGORY_ENTITY;
 
@@ -53,5 +56,34 @@ public class GoodsCategoryServiceImpl extends BaseServiceImpl<GoodsCategoryMappe
         }
 
         return super.delete(ids);
+    }
+
+    @Override
+    public List<CategoryLevelDto> getCategoryLevel() {
+        List<GoodsCategoryEntity> list = list(QueryWrapper.create()
+                .eq(GoodsCategoryEntity::getStatus, 1)
+                .orderBy(GoodsCategoryEntity::getSortOrder, true));
+
+        List<CategoryLevelDto> parentCategory = list.stream()
+                .filter(goodsCategoryEntity -> goodsCategoryEntity.getParentCategoryId() == 0)
+                .map(item -> CategoryLevelDto.builder()
+                        .value(item.getId())
+                        .label(item.getCategoryName())
+                        .build()).toList();
+
+
+
+        parentCategory.forEach(goodsCategoryEntity -> {
+
+            List<CategoryLevelDto> children = list.stream()
+                    .filter(categoryItem -> Objects.equals(categoryItem.getParentCategoryId(), goodsCategoryEntity.getValue()))
+                    .sorted(Comparator.comparing(GoodsCategoryEntity::getSortOrder))
+                    .map(item -> CategoryLevelDto.builder()
+                            .value(item.getId())
+                            .label(item.getCategoryName())
+                            .build()).toList();
+            goodsCategoryEntity.setChildren(children);
+        });
+        return parentCategory;
     }
 }

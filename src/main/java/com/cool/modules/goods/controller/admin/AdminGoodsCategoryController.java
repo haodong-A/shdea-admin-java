@@ -12,6 +12,7 @@ import com.cool.modules.goods.service.GoodsCategoryService;
 import com.mybatisflex.core.query.QueryWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -36,5 +37,10 @@ public class AdminGoodsCategoryController extends BaseController<GoodsCategorySe
     @PostMapping("/data")
     public R data(@RequestBody Dict body) {
         return R.ok(this.service.info(body.get("types", null)));
+    }
+
+    @GetMapping("/allLevel")
+    public R allLevel() {
+        return R.ok(this.service.getCategoryLevel());
     }
 }

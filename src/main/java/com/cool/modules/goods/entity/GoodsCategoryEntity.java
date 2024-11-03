@@ -19,7 +19,7 @@ public class GoodsCategoryEntity extends BaseEntity<GoodsCategoryEntity> {
     private String categoryName;
 
     @ColumnDefine(comment = "父分类ID", type = MysqlTypeConstant.TINYINT, defaultValue = "0")
-    private Integer parentCategoryId;
+    private Long parentCategoryId;
 
     @ColumnDefine(comment = "排序", notNull = true)
     private Integer sortOrder;
