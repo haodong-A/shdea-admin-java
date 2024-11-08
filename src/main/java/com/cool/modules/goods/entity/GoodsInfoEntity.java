@@ -33,14 +33,9 @@ public class GoodsInfoEntity extends BaseEntity<GoodsInfoEntity> {
     @ColumnDefine(comment = "品牌", notNull = true, defaultValue = "SHDEA")
     private String brand;
 
-    @ColumnDefine(comment = "特殊属性", notNull = true, type = MysqlTypeConstant.TEXT)
-    private String specificAttributes;
+    @ColumnDefine(comment = "参数", type = MysqlTypeConstant.TEXT)
+    private String params;
 
-    @ColumnDefine(comment = "其他属性", type = MysqlTypeConstant.TEXT, notNull = true)
-    private String otherAttributes;
-
-    @ColumnDefine(comment = "交货", type = MysqlTypeConstant.TEXT, notNull = true)
-    private String delivery;
 
     @ColumnDefine(comment = "状态 0-下架 1-上架", defaultValue = "1")
     private Integer status;

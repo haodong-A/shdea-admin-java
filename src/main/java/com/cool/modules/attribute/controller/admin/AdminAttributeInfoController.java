@@ -34,4 +34,10 @@ public class AdminAttributeInfoController extends BaseController<AttributeInfoSe
     public R data(@RequestBody Dict body) {
         return R.ok(this.service.info(body.get("types", null)));
     }
+
+    @Operation(summary = "获取所有属性表")
+    @PostMapping("/levelParam")
+    public R levelParam() {
+        return R.ok(this.service.getLevelAttributeInfo());
+    }
 }

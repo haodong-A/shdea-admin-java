@@ -28,7 +28,7 @@ public class AttributeInfoEntity extends BaseEntity<AttributeInfoEntity> {
     private Integer required;
 
     @Index
-    @ColumnDefine(comment = "字段类型 0-字符串 1-整数 2-浮点数 3-日期 4-布尔", defaultValue = "0")
+    @ColumnDefine(comment = "字段类型 0-字符串 1-文本 2-日期 3-数字 ", defaultValue = "0")
     private Integer fieldType;
 
     @ColumnDefine(comment = "状态 0-禁用 1-启用", defaultValue = "1")
