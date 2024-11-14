@@ -16,15 +16,14 @@ public class GoodsFieldEntity extends BaseEntity<GoodsFieldEntity> {
 
     @ColumnDefine(comment = "参数模板名称", notNull = true)
     @Unique
-    @Index
     private String name;
 
     @ColumnDefine(comment = "参数模板代码", type = MysqlTypeConstant.TEXT, notNull = true)
     private String template;
 
-    @ColumnDefine(comment = "版本", type = MysqlTypeConstant.VARCHAR, notNull = true)
-    private String version;
+    @ColumnDefine(comment = "版本", notNull = true)
+    private String templateV;
 
-    @ColumnDefine(comment = "启用状态", type = MysqlTypeConstant.TINYINT, notNull = true, defaultValue = "1")
+    @ColumnDefine(comment = "状态 1-启用 0-禁用", type = MysqlTypeConstant.TINYINT, notNull = true, defaultValue = "1")
     private Integer status;
 }
