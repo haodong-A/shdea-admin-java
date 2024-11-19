@@ -23,5 +23,4 @@ public class AttributeTypeEntity extends BaseEntity<AttributeTypeEntity> {
     @ColumnDefine(comment = "排序", notNull = true, defaultValue = "0")
     private Integer sort;
 
-
 }
