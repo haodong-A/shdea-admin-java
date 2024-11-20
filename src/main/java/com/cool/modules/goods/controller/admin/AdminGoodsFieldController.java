@@ -17,8 +17,10 @@ public class AdminGoodsFieldController extends BaseController<GoodsFieldService,
 
     @Override
     protected void init(HttpServletRequest request, JSONObject requestParams) {
+        setListOption(createOp().fieldEq(GOODS_FIELD_ENTITY.STATUS));
         setPageOption(createOp().fieldEq(GOODS_FIELD_ENTITY.NAME)
+                .fieldEq(GOODS_FIELD_ENTITY.STATUS)
                 .keyWordLikeFields(GOODS_FIELD_ENTITY.NAME)
-                .queryWrapper(QueryWrapper.create().orderBy(GOODS_FIELD_ENTITY.CREATE_TIME, false)));
+                .queryWrapper(QueryWrapper.create().orderBy(GOODS_FIELD_ENTITY.STATUS, false)));
     }
 }
