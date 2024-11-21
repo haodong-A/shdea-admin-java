@@ -12,8 +12,8 @@ import lombok.Setter;
  * */
 @Setter
 @Getter
-@Table("goods_info_spec")
-public class GoodsInfoSpecEntity extends BaseEntity<GoodsInfoSpecEntity> {
+@Table("goods_spec")
+public class GoodsSpecEntity extends BaseEntity<GoodsSpecEntity> {
     @ColumnDefine(comment = "规格名称", notNull = true)
     private String specName;
 
