@@ -29,6 +29,9 @@ public class GoodsInfoEntity extends BaseEntity<GoodsInfoEntity> {
     @ColumnDefine(comment = "分类", notNull = true)
     private String category;
 
+    @ColumnDefine(comment = "描述")
+    private String description;
+
     @Index
     @ColumnDefine(comment = "品牌", notNull = true, defaultValue = "SHDEA")
     private String brand;

@@ -17,6 +17,8 @@ public class GoodsInfoSpecEntity extends BaseEntity<GoodsInfoSpecEntity> {
     @ColumnDefine(comment = "规格名称", notNull = true)
     private String specName;
 
+    @ColumnDefine(comment = "规格类型", notNull = true)
+    private String specType;
 
     @ColumnDefine(comment = "主图", notNull = true)
     private String mainImage;
