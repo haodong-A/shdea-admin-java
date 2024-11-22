@@ -20,7 +20,8 @@ public class AdminGoodsSpecController extends BaseController<GoodsSpecService, G
     protected void init(HttpServletRequest request, JSONObject requestParams) {
         setPageOption(createOp().fieldEq(GOODS_SPEC_ENTITY.SPEC_NAME)
                 .fieldEq(GOODS_SPEC_ENTITY.INFO_ID)
+                .fieldEq(GOODS_SPEC_ENTITY.SPEC_TYPE)
                 .keyWordLikeFields(GOODS_SPEC_ENTITY.SPEC_NAME)
-                .queryWrapper(QueryWrapper.create().orderBy(GOODS_SPEC_ENTITY.ORDER, false)));
+                .queryWrapper(QueryWrapper.create().orderBy(GOODS_SPEC_ENTITY.ORDER, true)));
     }
 }

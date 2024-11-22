@@ -26,7 +26,7 @@ public class GoodsSpecEntity extends BaseEntity<GoodsSpecEntity> {
     @ColumnDefine(comment = "副图,限制为5张", type = MysqlTypeConstant.TEXT)
     private String otherImages;
 
-    @ColumnDefine(comment = "起订量-价格映射", notNull = true, type = MysqlTypeConstant.TEXT)
+    @ColumnDefine(comment = "起订量-价格映射", type = MysqlTypeConstant.TEXT)
     private String moqPrices;
 
     @ColumnDefine(comment = "是否接受样品", type = MysqlTypeConstant.TINYINT)
@@ -38,8 +38,11 @@ public class GoodsSpecEntity extends BaseEntity<GoodsSpecEntity> {
     @ColumnDefine(comment = "详情页", type = MysqlTypeConstant.TEXT)
     private String detailPage;
 
+    @ColumnDefine(comment = "状态 1-正常 0-禁用", type = MysqlTypeConstant.TINYINT, notNull = true)
+    private Integer status;
+
     @ColumnDefine(comment = "排序")
-    private String order;
+    private Integer order;
 
     @ColumnDefine(comment = "商品信息id")
     private Integer infoId;
