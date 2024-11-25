@@ -25,6 +25,7 @@ public class AdminGoodsInfoController extends BaseController<GoodsInfoService, G
     @Override
     protected void init(HttpServletRequest request, JSONObject requestParams) {
         setPageOption(createOp().fieldEq(GOODS_INFO_ENTITY.CATEGORY)
+                .fieldEq(GOODS_INFO_ENTITY.STATUS)
                 .keyWordLikeFields(GOODS_INFO_ENTITY.TITLE)
                 .queryWrapper(QueryWrapper.create().orderBy(GOODS_INFO_ENTITY.CREATE_TIME, false)));
     }
