@@ -4,6 +4,7 @@ import com.cool.core.base.BaseEntity;
 import com.mybatisflex.annotation.Table;
 import com.tangzc.autotable.annotation.mysql.MysqlTypeConstant;
 import com.tangzc.mybatisflex.autotable.annotation.ColumnDefine;
+import com.tangzc.mybatisflex.autotable.annotation.UniIndex;
 import lombok.Getter;
 import lombok.Setter;
 /**
@@ -17,8 +18,14 @@ public class GoodsSpecEntity extends BaseEntity<GoodsSpecEntity> {
     @ColumnDefine(comment = "规格名称", notNull = true)
     private String specName;
 
+    @ColumnDefine(comment = "产品型号", notNull = true)
+    private String specModel;
+
     @ColumnDefine(comment = "规格类型", notNull = true)
     private String specType;
+
+    @ColumnDefine(comment = "规格参数，指定规格中会出现相对应的参数列表", type= MysqlTypeConstant.TEXT)
+    private String specParam;
 
     @ColumnDefine(comment = "主图", notNull = true)
     private String mainImage;
