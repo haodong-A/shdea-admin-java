@@ -42,7 +42,7 @@ public class GoodsSpecEntity extends BaseEntity<GoodsSpecEntity> {
     @ColumnDefine(comment = "样品单价", type = MysqlTypeConstant.FLOAT)
     private float samplePrice;
 
-    @ColumnDefine(comment = "详情页", type = MysqlTypeConstant.TEXT)
+    @ColumnDefine(comment = "详情页", type = MysqlTypeConstant.LONGTEXT)
     private String detailPage;
 
     @ColumnDefine(comment = "状态 1-正常 0-禁用", type = MysqlTypeConstant.TINYINT, notNull = true)
