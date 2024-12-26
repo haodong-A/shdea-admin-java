@@ -18,10 +18,10 @@ public class GoodsFieldEntity extends BaseEntity<GoodsFieldEntity> {
     @Unique
     private String name;
 
-    @ColumnDefine(comment = "参数模板代码", type = MysqlTypeConstant.TEXT, notNull = true)
+    @ColumnDefine(comment = "参数模板代码", type = MysqlTypeConstant.LONGTEXT, notNull = true)
     private String template;
 
-    @ColumnDefine(comment = "字段模型", type = MysqlTypeConstant.TEXT, notNull = true)
+    @ColumnDefine(comment = "字段模型", type = MysqlTypeConstant.LONGTEXT, notNull = true)
     private String model;
 
     @ColumnDefine(comment = "版本", notNull = true)
