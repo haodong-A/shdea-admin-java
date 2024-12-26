@@ -42,7 +42,7 @@ spring:
     type: redis
   data:
     redis:
-      host: 10.4.4.11 #43.130.29.36
+      host: 43.130.29.36 #43.130.29.36 10.4.4.11
       port: 6379
       database: 1
       password: shdea2020
