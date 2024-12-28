@@ -4,10 +4,13 @@ import cn.hutool.json.JSONObject;
 import com.cool.core.base.BaseServiceImpl;
 import com.cool.core.exception.CoolException;
 import com.cool.modules.goods.dto.product.ProductShowDto;
+import com.cool.modules.goods.entity.GoodsFieldEntity;
 import com.cool.modules.goods.entity.GoodsInfoEntity;
 import com.cool.modules.goods.entity.GoodsSpecEntity;
+import com.cool.modules.goods.entity.table.GoodsFieldEntityTableDef;
 import com.cool.modules.goods.entity.table.GoodsInfoEntityTableDef;
 import com.cool.modules.goods.entity.table.GoodsSpecEntityTableDef;
+import com.cool.modules.goods.mapper.GoodsFieldMapper;
 import com.cool.modules.goods.mapper.GoodsInfoMapper;
 import com.cool.modules.goods.mapper.GoodsSpecMapper;
 import com.cool.modules.goods.service.GoodsInfoService;
@@ -30,6 +33,8 @@ public class GoodsInfoServiceImpl extends BaseServiceImpl<GoodsInfoMapper, Goods
 
     final private GoodsSpecMapper goodsSpecMapper;
 
+    final private GoodsFieldMapper goodsFieldMapper;
+
     @Override
     public ProductShowDto getProductShowDto(JSONObject requestParam) {
         String goodsId = requestParam.get("goodsId").toString();
@@ -42,11 +47,21 @@ public class GoodsInfoServiceImpl extends BaseServiceImpl<GoodsInfoMapper, Goods
         }
         List<GoodsSpecEntity> goodsSpecEntities = goodsSpecMapper.selectListByCondition(QueryCondition.create(GoodsSpecEntityTableDef.GOODS_SPEC_ENTITY.INFO_ID, goodsInfoEntity.getId()));
 
+        GoodsFieldEntity goodsFieldEntity = goodsFieldMapper.selectOneByCondition(
+                QueryCondition.create(GoodsFieldEntityTableDef.GOODS_FIELD_ENTITY.STATUS, 1)
+        );
+
+        if (Objects.isNull(goodsFieldEntity)) {
+            goodsFieldEntity = new GoodsFieldEntity();
+            goodsFieldEntity.setModel("");
+        }
         return ProductShowDto.builder()
                 .title(goodsInfoEntity.getTitle())
                 .description(goodsInfoEntity.getDescription())
                 .spec(goodsSpecEntities)
                 .cover(goodsInfoEntity.getCover())
+                .param(goodsFieldEntity.getModel())
                 .build();
     }
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Schema(description = "产品展示页面")
 @Builder
 public class ProductShowDto {
+
     @Schema(description = "标题")
     private String title;
 
@@ -21,5 +22,9 @@ public class ProductShowDto {
     @Schema(description = "描述")
     private String description;
 
+    @Schema(description = "规格")
     private List<GoodsSpecEntity> spec;
+
+    @Schema(description = "参数Model")
+    private String param;
 }

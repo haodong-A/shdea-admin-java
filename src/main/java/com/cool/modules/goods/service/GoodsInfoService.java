@@ -3,6 +3,7 @@ package com.cool.modules.goods.service;
 import cn.hutool.json.JSONObject;
 import com.cool.core.base.BaseService;
 import com.cool.modules.goods.dto.product.ProductShowDto;
+import com.cool.modules.goods.entity.GoodsFieldEntity;
 import com.cool.modules.goods.entity.GoodsInfoEntity;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,5 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface GoodsInfoService extends BaseService<GoodsInfoEntity> {
 
     ProductShowDto getProductShowDto(JSONObject requestParam);
+
 
 }

@@ -11,6 +11,7 @@ import com.cool.modules.goods.service.GoodsInfoService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -28,6 +29,5 @@ public class AppGoodsInfoController extends BaseController<GoodsInfoService, Goo
     public R info(@RequestBody JSONObject requestParams) {
         return R.ok(this.service.getProductShowDto(requestParams));
    }
-
 
 }
