@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Schema(description = "产品展示页面")
@@ -21,6 +22,9 @@ public class ProductShowDto {
 
     @Schema(description = "描述")
     private String description;
+
+    @Schema(description = "分类")
+    private String category;
 
     @Schema(description = "规格")
     private List<GoodsSpecEntity> spec;
